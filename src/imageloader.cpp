@@ -51,7 +51,7 @@ u_int32_t ImageLoader::loadImage(unsigned i_imgSize, char *p_imgData, Mat &img)
 
 
     GaussianBlur( img, img, Size(3,3), 0, 0, BORDER_DEFAULT );
-    cvtColor( img, img, CV_BGR2GRAY)
+    cvtColor( img, img, CV_BGR2GRAY);
     equalizeHist( img, img );
 
 
