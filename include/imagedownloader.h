@@ -1,5 +1,5 @@
 /*****************************************************************************
- * Copyright (C) 2014 Visualink
+ * Copyright (C) 2018 Adrien Maglo
  *
  * Authors: Adrien Maglo <adrien@visualink.io>
  *
@@ -19,40 +19,30 @@
  * along with Pastec.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-#ifndef PASTEC_ORBFEATUREEXTRACTOR_H
-#define PASTEC_ORBFEATUREEXTRACTOR_H
+#ifndef IMAGEDOWNLOADER_H
+#define IMAGEDOWNLOADER_H
 
-#include <iostream>
-#include <fstream>
-#include <list>
+#include <string>
+#include <vector>
 
-#include <opencv2/core/core.hpp>
-#include <opencv2/features2d/features2d.hpp>
+#include <curl/curl.h>
 
-#include <orbindex.h>
-#include <orbwordindex.h>
-#include <featureextractor.h>
-
-class ClientConnection;
+//#define UNSAFE_HTTPS
 
 
-using namespace cv;
-using namespace std;
-
-
-class ORBFeatureExtractor : public FeatureExtractor
+class ImageDownloader
 {
 public:
-    ORBFeatureExtractor(ORBIndex *index, ORBWordIndex *wordIndex);
-    virtual ~ORBFeatureExtractor() {}
+    ImageDownloader();
 
-    u_int32_t processNewImage(unsigned i_imageId, unsigned i_imgSize,
-                              char *p_imgData, unsigned &i_nbFeaturesExtracted);
+    bool canDownloadImage(std::string imgURL);
+    u_int32_t getImageData(std::string imgURL, std::vector<char> &imgData,
+                           long &responseCode);
 
 private:
-    ORBIndex *index;
-    ORBWordIndex *wordIndex;
-    Ptr<ORB> orb;
+    static size_t writeCallback(char *ptr, size_t size, size_t nmemb, void *userdata);
+
 };
 
-#endif // PASTEC_ORBFEATUREEXTRACTOR_H
+
+#endif // IMAGEDOWNLOADER_H

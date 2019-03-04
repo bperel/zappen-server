@@ -23,6 +23,7 @@
 #define PASTEC_REQUESTHANDLER_H
 
 #include <httpserver.h>
+#include <imagedownloader.h>
 
 class FeatureExtractor;
 class Searcher;
@@ -39,7 +40,8 @@ class RequestHandler
 {
 public:
     RequestHandler(FeatureExtractor *featureExtractor,
-                   Searcher *imageSearcher, Index *index, string authKey);
+                   Searcher *imageSearcher, Index *index,
+                   ImageDownloader *imgDownloader, string authKey);
     void handleRequest(ConnectionInfo &conInfo);
 
 private:
@@ -51,6 +53,7 @@ private:
     FeatureExtractor *featureExtractor;
     Searcher *imageSearcher;
     Index *index;
+    ImageDownloader *imgDownloader;
 
     string authKey;
 };

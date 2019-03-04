@@ -47,10 +47,7 @@ u_int32_t ImageLoader::loadImage(unsigned i_imgSize, char *p_imgData, Mat &img)
     }
 
     if (!img.data)
-    {
-        cout << "Error reading the image." << std::endl;
         return IMAGE_NOT_DECODED;
-    }
 
 
     GaussianBlur( img, img, Size(3,3), 0, 0, BORDER_DEFAULT );
