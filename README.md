@@ -4,9 +4,9 @@ Zappen Server - Pastec
 Introduction
 ------------
 
-Zappen image recognition server, forked from Pastec with image processing enhancements, to be used with Zappen camera app functionality (https://github.com/yesexactly/zappen-camera-app). Server URL and port should be entered into zappen-camera-app/app/components/ZappenCamera.js to connect. 
+Zappen image recognition server, forked from Pastec with image processing enhancements, to be used with Zappen camera app functionality (https://github.com/yesexactly/zappen-camera-app). Server URL and port should be entered into zappen-camera-app/app/components/ZappenCamera.js to connect.
 
-Zapp image URL should be stored in the image TAGS JSON as 'url': 
+Zapp image URL should be stored in the image TAGS JSON as 'url':
 curl -X PUT -d "{'url':'https://www.foo.com'}"  http://ZAPPEN_SERVER:4212/index/images/1/tag
 
 

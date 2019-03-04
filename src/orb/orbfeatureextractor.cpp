@@ -96,12 +96,6 @@ u_int32_t ORBFeatureExtractor::processNewImage(unsigned i_imageId, unsigned i_im
     waitKey();
 #endif
 
-   // Draw keypoints.
-    //Mat img_res;
-    //drawKeypoints(img, keypoints, img_res, Scalar::all(-1), DrawMatchesFlags::DEFAULT);
-
-    //imwrite("keypoints.jpg",img_res); 
-
     // Record the hits.
     return index->addImage(i_imageId, imageHits);
 }

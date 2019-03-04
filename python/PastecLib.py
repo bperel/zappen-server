@@ -103,10 +103,10 @@ class PastecConnection:
         return imageIds
 
     def getTag(self, imagedId):
-	ret = self.request("index/images/%s/tag" % str(imageId), "GET") :
-	self.raiseExceptionIfNeeded(ret["type"])
-	tag = ret["tags"];
-	return tag;
+        ret = self.request("index/images/%s/tag" % str(imageId), "GET") :
+        self.raiseExceptionIfNeeded(ret["type"])
+        tag = ret["tags"];
+        return tag;
 
     def imageQueryFile(self, filePath):
         return self.imageQueryData(self.loadFileData(filePath))

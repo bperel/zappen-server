@@ -14,7 +14,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
- *
+ *
  * You should have received a copy of the GNU Lesser General Public License
  * along with Pastec.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
@@ -56,7 +56,7 @@ u_int32_t ImageLoader::loadImage(unsigned i_imgSize, char *p_imgData, Mat &img)
     GaussianBlur( img, img, Size(3,3), 0, 0, BORDER_DEFAULT );
     cvtColor( img, img, CV_BGR2GRAY)
     equalizeHist( img, img );
-    
+
 
     unsigned i_imgWidth = img.cols;
     unsigned i_imgHeight = img.rows;
@@ -78,9 +78,7 @@ u_int32_t ImageLoader::loadImage(unsigned i_imgSize, char *p_imgData, Mat &img)
             size.height = 1000;
         }
         resize(img, img, size);
-    //  imwrite("test.jpg", img);
-
-	return OK;
+        return OK;
     }
 
 #if 1
@@ -91,8 +89,6 @@ u_int32_t ImageLoader::loadImage(unsigned i_imgSize, char *p_imgData, Mat &img)
         return IMAGE_SIZE_TOO_SMALL;
     }
 #endif
-
-    imwrite("test.jpg", img);
 
     return OK;
 }

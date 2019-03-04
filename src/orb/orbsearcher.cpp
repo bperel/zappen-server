@@ -170,7 +170,6 @@ u_int32_t ORBSearcher::searchImage(SearchRequest &request)
     gettimeofday(&t[2], NULL);
     cout << "time: " << getTimeDiff(t[1], t[2]) << " ms." << endl;
 
-    imwrite("/var/log/pastec/zappimage.jpg",img);
     return processSimilar(request, imageReqHits);
 }
 
